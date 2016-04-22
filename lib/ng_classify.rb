@@ -54,20 +54,22 @@ module NgClassify
       env.require('ng-classify-commonjs.js').call(data, options)
     end
   end
-
-  module Rails
-    class Railtie < ::Rails::Railtie
-      if ::Rails.version.to_s >= '3.1'
-        config.app_generators.template_engine 'ng-classify'
-      else
-        config.generators.template_engine 'ng-classify'
-      end
-
-      initializer 'ng_classify.configure_template_digestor' do |app|
-        if app.assets && app.assets.respond_to?(:register_engine)
-          app.assets.register_engine '.ng-classify', NgClassify::Template
-        end
-      end
-    end
-  end
+#  module Rails
+#    class Railtie < ::Rails::Railtie
+#      if ::Rails.version.to_s >= '3.1'
+#        config.app_generators.template_engine 'ng-classify'
+#      else
+#        config.generators.template_engine 'ng-classify'
+#      end
+#
+#      initializer 'ng_classify.configure_template_digestor' do |app|
+#        if app.assets && app.assets.respond_to?(:register_engine)
+#          app.assets.register_engine '.ng-classify', NgClassify::Template
+#        end
+#      end
+#    end
+#  end
 end
+
+#Rails 4 depends on Sprockets to laod the engins
+Sprockets.register_engine '.ng-classify', NgClassify::Template

@@ -7,8 +7,8 @@ require "ng_classify/version"
 Gem::Specification.new do |s|
   s.name        = "ng_classify"
   s.version     = NgClassify::VERSION
-  s.authors     = ["Penn Su"]
-  s.email       = ["pennsu@gmail.com"]
+  s.authors     = ["Penn Su","Prabandham Srinidhi"]
+  s.email       = ["pennsu@gmail.com","sriprabandham@gmail.com"]
   s.homepage    = "https://github.com/pencilcheck/ng_classify"
   s.summary     = "A preprocessor for the ng-classify npm module"
   s.description = "Convert CoffeeScript classes to AngularJS modules
